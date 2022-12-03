@@ -1,18 +1,18 @@
 // Styles:
-import { Meals } from "./AvailableMeals.styles";
+import { ListOfMeals, Meals } from "./AvailableMeals.styles";
 // Data:
 import { DUMMY_DATA_MEALS } from "../../mealsData";
 
 const AvailableMeals = () => {
   return (
     <Meals>
-      <ul>
+      <ListOfMeals>
         { DUMMY_DATA_MEALS.map(item => (
           <li>
             {item.name}
           </li>
         ))}
-      </ul>
+      </ListOfMeals>
     </Meals>
   );
 };
