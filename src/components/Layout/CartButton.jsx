@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const CartButton = () => {
   return (
-    <Button>
+    <Button className="abcd">
       <CartIconContainer>
         <AiOutlineShoppingCart />
       </CartIconContainer>
