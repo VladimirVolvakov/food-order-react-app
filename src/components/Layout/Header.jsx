@@ -1,14 +1,16 @@
 // Styles:
-import { Button, Container, AppHeader, HeaderImage, ImageContainer, Logo } from "./Header.styles";
+import { Container, AppHeader, HeaderImage, ImageContainer, Logo } from "./Header.styles";
 // Image:
 import Meals from "../../assets/meals.jpg";
+// Component:
+import CartButton from "./CartButton";
 
 const Header = () => {
   return (
     <Container>
       <AppHeader>
         <Logo>ReactRestaurant</Logo>
-        <Button>Cart</Button>
+        <CartButton />
       </AppHeader>
       <ImageContainer>
         <HeaderImage src={Meals} alt="React Restaurant" />
