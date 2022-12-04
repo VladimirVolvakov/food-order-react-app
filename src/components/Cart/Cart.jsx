@@ -19,7 +19,7 @@ const Cart = () => {
       </AmountContainer>
       <ActionsContainer>
         <Button>Close</Button>
-        <Button>Order</Button>
+        <Button purpose="order">Order</Button>
       </ActionsContainer>
     </Container>
   );
