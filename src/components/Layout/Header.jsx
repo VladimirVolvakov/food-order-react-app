@@ -5,12 +5,12 @@ import Meals from "../../assets/meals.jpg";
 // Component:
 import CartButton from "./CartButton";
 
-const Header = () => {
+const Header = ({ onOpenModalWindow }) => {
   return (
     <Container>
       <AppHeader>
         <Logo>ReactRestaurant</Logo>
-        <CartButton />
+        <CartButton onClick={onOpenModalWindow} />
       </AppHeader>
       <ImageContainer>
         <HeaderImage src={Meals} alt="React Restaurant" />

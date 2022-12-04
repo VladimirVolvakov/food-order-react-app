@@ -3,13 +3,13 @@ import { Amount, Button, ButtonText, CartIconContainer } from "./CartButton.styl
 // Icon:
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const CartButton = () => {
+const CartButton = ({ onClick }) => {
   return (
     <Button className="abcd">
       <CartIconContainer>
         <AiOutlineShoppingCart />
       </CartIconContainer>
-      <ButtonText>Your Cart</ButtonText>
+      <ButtonText onClick={onClick}>Your Cart</ButtonText>
       <Amount>4</Amount>
     </Button>
   );

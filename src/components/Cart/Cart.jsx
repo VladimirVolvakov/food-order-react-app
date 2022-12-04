@@ -3,7 +3,7 @@ import { ActionsContainer, Amount, AmountContainer, Button, CartList } from "./C
 // Component:
 import Modal from "../UI/Modal";
 
-const Cart = () => {
+const Cart = ({ onCloseModalWindow }) => {
   const cartItems = [
     { id: 'c1', name: 'Burger', amount: 1, price: 2.59 },
     { id: 'c2', name: 'French Fries Big', amount: 1, price: 1.39},
@@ -11,7 +11,7 @@ const Cart = () => {
   ]
 
   return (
-    <Modal>
+    <Modal onClickHandler={onCloseModalWindow}>
       <CartList>
         {cartItems.map(item => <li>{item.name}</li>)}
       </CartList>
@@ -20,7 +20,7 @@ const Cart = () => {
         <Amount>$8.57</Amount>
       </AmountContainer>
       <ActionsContainer>
-        <Button>Close</Button>
+        <Button onClick={onCloseModalWindow}>Close</Button>
         <Button purpose="order">Order</Button>
       </ActionsContainer>
     </Modal>
