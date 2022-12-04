@@ -1,5 +1,7 @@
 // Styles:
-import { ActionsContainer, Amount, AmountContainer, Button, CartList, Container } from "./Cart.styles";
+import { ActionsContainer, Amount, AmountContainer, Button, CartList } from "./Cart.styles";
+// Component:
+import Modal from "../UI/Modal";
 
 const Cart = () => {
   const cartItems = [
@@ -9,7 +11,7 @@ const Cart = () => {
   ]
 
   return (
-    <Container>
+    <Modal>
       <CartList>
         {cartItems.map(item => <li>{item.name}</li>)}
       </CartList>
@@ -21,7 +23,7 @@ const Cart = () => {
         <Button>Close</Button>
         <Button purpose="order">Order</Button>
       </ActionsContainer>
-    </Container>
+    </Modal>
   );
 };
 
