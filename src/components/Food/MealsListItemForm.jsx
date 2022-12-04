@@ -7,7 +7,7 @@ const MealsListItemForm = () => {
   return (
     <Form>
       <Input
-        label="Amount"
+        labelText="Amount"
         id="amount"
         type="number"
         inputParams={{ min: "1", max: "10", step: "1", defaultValue: "1" }}
