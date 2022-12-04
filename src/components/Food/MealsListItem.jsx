@@ -1,5 +1,7 @@
 // Styles:
 import { FormContainer, Item, ItemDescription, ItemInfo, ItemName, ItemPrice } from "./MealsListItem.styles";
+// Component:
+import MealsListItemForm from "./MealsListItemForm";
 
 const MealsListItem = ({ name, description, price}) => {
   return (
@@ -9,7 +11,9 @@ const MealsListItem = ({ name, description, price}) => {
         <ItemDescription>{description}</ItemDescription>
         <ItemPrice>${price}</ItemPrice>
       </ItemInfo>
-      <FormContainer>Form</FormContainer>
+      <FormContainer>
+        <MealsListItemForm />
+      </FormContainer>
     </Item>
   );
 };
