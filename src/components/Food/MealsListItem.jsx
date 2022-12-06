@@ -2,8 +2,20 @@
 import { FormContainer, Item, ItemDescription, ItemInfo, ItemName, ItemPrice } from "./MealsListItem.styles";
 // Component:
 import MealsListItemForm from "./MealsListItemForm";
+// Hook:
+import { useContext } from "react";
+// Context:
+import CartContext from "../../store/cartContext";
 
-const MealsListItem = ({ name, description, price}) => {
+const MealsListItem = ({ id, name, description, price}) => {
+  const context = useContext(CartContext);
+
+  const addToCartHandler = (amount) => {
+    context.addItem({
+      id, name, amount, price
+    });
+  };
+
   return (
     <Item>
       <ItemInfo>
@@ -12,7 +24,7 @@ const MealsListItem = ({ name, description, price}) => {
         <ItemPrice>${price}</ItemPrice>
       </ItemInfo>
       <FormContainer>
-        <MealsListItemForm />
+        <MealsListItemForm onAddToCart={addToCartHandler} />
       </FormContainer>
     </Item>
   );
