@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const CartList = styled.ul`
   list-style: none;
+  max-height: 20rem;
+  overflow: scroll;
 `;
 
 export const AmountContainer = styled.div`

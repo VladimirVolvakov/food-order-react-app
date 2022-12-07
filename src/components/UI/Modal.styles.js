@@ -15,7 +15,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   width: 90%;
-  max-width: 60rem;
+  max-width: 40rem;
   padding: 2rem;
   background-color: white;
   border-radius: 0.5rem;
