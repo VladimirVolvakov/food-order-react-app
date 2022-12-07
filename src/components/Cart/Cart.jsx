@@ -1,27 +1,43 @@
 // Styles:
 import { ActionsContainer, Amount, AmountContainer, Button, CartList } from "./Cart.styles";
-// Component:
+// Components:
+import CartItem from "./CartItem";
 import Modal from "../UI/Modal";
+// Hook:
+import { useContext } from "react";
+// Context:
+import CartContext from "../../store/cartContext";
 
 const Cart = ({ onCloseModalWindow }) => {
-  const cartItems = [
-    { id: 'c1', name: 'Burger', amount: 1, price: 2.59 },
-    { id: 'c2', name: 'French Fries Big', amount: 1, price: 1.39},
-    { id: 'c3', name: 'Philadelphia Rolls', amount: 1, price: 4.59}
-  ]
+  const context = useContext(CartContext);
+
+  const totalAmount = `$${context.totalAmount.toFixed(2)}`;
+  const cartHasItems = context.items.length > 0;
+
+  const addItemToCartHandler = (item) => {};
+  const removeItemFromCartHandler = (id) => {};
 
   return (
     <Modal onClickHandler={onCloseModalWindow}>
       <CartList>
-        {cartItems.map(item => <li>{item.name}</li>)}
+        {context.items.map(item => (
+          <CartItem 
+            key={item.id}
+            name={item.name}
+            price={item.price}
+            amount={item.amount}
+            onAdd={addItemToCartHandler.bind(null, item)}
+            onRemove={removeItemFromCartHandler.bind(null, item.id)}
+          />
+        ))}
       </CartList>
       <AmountContainer>
         <Amount>Total amount</Amount>
-        <Amount>$8.57</Amount>
+        <Amount>{totalAmount}</Amount>
       </AmountContainer>
       <ActionsContainer>
         <Button onClick={onCloseModalWindow}>Close</Button>
-        <Button purpose="order">Order</Button>
+        { cartHasItems && <Button purpose="order">Order</Button> }
       </ActionsContainer>
     </Modal>
   );
