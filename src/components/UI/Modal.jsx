@@ -1,9 +1,9 @@
 // Styles:
 import { Container, Wrapper } from "./Modal.styles";
 
-const Modal = ({ children, onClickHandler }) => {
+const Modal = ({ children }) => {
   return (
-    <Container onClick={onClickHandler}>
+    <Container>
       <Wrapper>
         {children}
       </Wrapper>
