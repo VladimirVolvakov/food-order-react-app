@@ -10,27 +10,33 @@ const defaultCartState = {
 
 const cartReducer = (defaultCartState, action) => {
   if (action.type === "ADD_ITEM") {
-    const updatedItems = [action.payload, ...defaultCartState.items];
     const updatedTotalAmount = defaultCartState.totalAmount + action.payload.price * action.payload.amount;
+    // Check if added item already exists in the cart:
+    const cartItemIndex = defaultCartState.items.findIndex(item => item.id === action.payload.id);
+    const existingCartItem = defaultCartState.items[cartItemIndex];
+
+    let updatedItem;
+    let updatedItems;
+
+    if (existingCartItem) {
+      updatedItem = {
+        ...existingCartItem,
+        amount: existingCartItem.amount + action.payload.amount
+      };
+
+      updatedItems = [...defaultCartState.items];
+      updatedItems[cartItemIndex] = updatedItem;
+    } else {
+      updatedItem = {...action.payload};
+      updatedItems = [...defaultCartState.items, updatedItem];
+    }
+    
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount
     }
-    // let index = defaultCartState.items.indexOf(action.payload);
-
-    // if (index === -1) {
-    //   return [action.payload, ...defaultCartState.items];
-    // } else {
-    //   defaultCartState.items[index].amount += action.payload.amount;
-    //   return [...defaultCartState.items];
-    // }
-  }
-
-  // if (action.type === "REMOVE_ITEM") {
-  //   delete defaultCartState.items[action.payload];
-  //   return [...defaultCartState.items];
-  // };
-
+  };
+  
   return defaultCartState;
 };
 
