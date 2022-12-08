@@ -21,7 +21,7 @@ const MealsListItem = ({ id, name, description, price}) => {
       <ItemInfo>
         <ItemName>{name}</ItemName>
         <ItemDescription>{description}</ItemDescription>
-        <ItemPrice>${price}</ItemPrice>
+        <ItemPrice>${price.toFixed(2)}</ItemPrice>
       </ItemInfo>
       <FormContainer>
         <MealsListItemForm onAddToCart={addToCartHandler} />
