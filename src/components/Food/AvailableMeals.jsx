@@ -9,6 +9,7 @@ import { useCallback, useEffect, useState } from "react";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchMeals = useCallback(async () => {
     try {
@@ -34,6 +35,8 @@ const AvailableMeals = () => {
     } catch (error) {
       console.log(error.message)
     }
+
+    setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -43,6 +46,7 @@ const AvailableMeals = () => {
   return (
     <Meals>
       <Card>
+        {isLoading && <p style={{textAlign: "center"}}>Loading...</p>}
         <ListOfMeals>
           {meals.map((item) => (
             <MealsListItem
