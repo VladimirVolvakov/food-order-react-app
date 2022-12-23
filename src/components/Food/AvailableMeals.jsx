@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from "react";
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchMeals = useCallback(async () => {
     try {
@@ -33,7 +34,7 @@ const AvailableMeals = () => {
 
       setMeals(loadedMeals);
     } catch (error) {
-      console.log(error.message)
+      setError(error.message)
     }
 
     setIsLoading(false);
@@ -47,6 +48,7 @@ const AvailableMeals = () => {
     <Meals>
       <Card>
         {isLoading && <p style={{textAlign: "center"}}>Loading...</p>}
+        {!isLoading && error && <p style={{textAlign: "center", color: "red"}}>{error}</p>}
         <ListOfMeals>
           {meals.map((item) => (
             <MealsListItem
