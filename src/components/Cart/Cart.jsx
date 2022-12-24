@@ -2,6 +2,7 @@
 import { ActionsContainer, Amount, AmountContainer, Button, CartList } from "./Cart.styles";
 // Components:
 import CartItem from "./CartItem";
+import Checkout from "./Checkout";
 import Modal from "../UI/Modal";
 // Hook:
 import { useContext } from "react";
@@ -40,6 +41,7 @@ const Cart = ({ onCloseModalWindow }) => {
         <Amount>Total amount</Amount>
         <Amount>{totalAmount}</Amount>
       </AmountContainer>
+      <Checkout />
       <ActionsContainer>
         <Button onClick={onCloseModalWindow}>Close</Button>
         { cartHasItems && <Button purpose="order">Order</Button> }
