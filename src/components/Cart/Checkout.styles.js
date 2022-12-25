@@ -14,6 +14,7 @@ export const Label = styled.label`
   font-weight: 600;
   display: block;
   margin-bottom: 0.25rem;
+  color: ${props => props.validity === "invalid" ? "#ca3e51" : "#000"};
 `;
 
 export const Input = styled.input`
@@ -22,6 +23,12 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   width: 98%;
+  border-color: ${props => props.validity === "invalid" ? "#aa0b20" : "#000"};
+  background-color: ${props => props.validity === "invalid" ? "#ffeff1" : "#fff"};
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const ActionsContainer = styled.div`
@@ -51,4 +58,10 @@ export const Button = styled.button`
     border-color: #3a3a3a;
     color: ${props => props.purpose !== "confirm" && "#fff"};
   }
+`;
+
+export const ErrorMessage = styled.p`
+  color: red;
+  font-size: 14px;
+  margin-top: 0.15rem;
 `;
