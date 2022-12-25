@@ -44,3 +44,15 @@ export const Button = styled.button`
     color: ${props => props.purpose !== "order" && "#fff"};
   }
 `;
+
+export const SendingDataMessage = styled.p`
+  text-align: center;
+`;
+
+export const FeedbackMessage = styled.p`
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #b28f53;
+  text-align: center;
+  margin: 10px auto;
+`;
