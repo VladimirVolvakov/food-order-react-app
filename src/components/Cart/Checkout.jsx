@@ -1,5 +1,5 @@
 // Styles:
-import { Button, Form, FormControl, Input, Label } from "./Checkout.styles";
+import { ActionsContainer, Button, Form, FormControl, Input, Label } from "./Checkout.styles";
 
 const Checkout = ({ onCancel }) => {
   const confirmHandler = (event) => {
@@ -25,8 +25,10 @@ const Checkout = ({ onCancel }) => {
         <Label htmlFor="address">Address</Label>
         <Input id="address" type="text" />
       </FormControl>
-      <Button type="button" onClick={onCancel}>Cancel</Button>
-      <Button>Confirm</Button>
+      <ActionsContainer>
+        <Button type="button" onClick={onCancel}>Cancel</Button>
+        <Button purpose="confirm">Confirm</Button>
+      </ActionsContainer>
     </Form>
   );
 };
