@@ -33,6 +33,16 @@ const Cart = ({ onCloseModalWindow }) => {
     setCheckoutIsShown(false);
   };
 
+  const submitOrderHandler = (userData) => {
+    fetch("https://food-order-app-79c69-default-rtdb.europe-west1.firebasedatabase.app/orders.json", {
+      method: "POST",
+      body: JSON.stringify({
+        user: userData,
+        order: context.items
+      })
+    });
+  };
+
   return (
     <Modal>
       {context.items.length > 0 && (
@@ -53,7 +63,9 @@ const Cart = ({ onCloseModalWindow }) => {
         <Amount>Total amount</Amount>
         <Amount>{totalAmount}</Amount>
       </AmountContainer>
-      {checkoutIsShown && <Checkout onCancel={cancelHandler} />}
+      {checkoutIsShown 
+        && (<Checkout onCancel={cancelHandler} onSubmit={submitOrderHandler} />)
+      }
       {!checkoutIsShown && (
         <ActionsContainer>
           <Button onClick={onCloseModalWindow}>Close</Button>

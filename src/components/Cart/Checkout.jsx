@@ -3,7 +3,7 @@ import { ActionsContainer, Button, ErrorMessage, Form, FormControl, Input, Label
 // Hook:
 import { useRef, useState } from "react";
 
-const Checkout = ({ onCancel }) => {
+const Checkout = ({ onCancel, onSubmit }) => {
   const [checkoutFormDataValidity, setCheckoutFormDataValidity] = useState({
     name: true,
     phone: true,
@@ -47,7 +47,7 @@ const Checkout = ({ onCancel }) => {
       return;
     };
 
-    console.log("Form is submitted!");
+    onSubmit({ userName, userPhone, userCity, userAddress });
   };
 
   const propsControl = (key) => {
